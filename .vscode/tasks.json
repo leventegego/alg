@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "make",
+			"command": "make",
+			"args": ["bin/${fileBasenameNoExtension}.exe"],
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false
+			}
+		},
+		{
+			"label": "run",
+			"command": "make",
+			"args": ["run", "TARGET=${fileBasenameNoExtension}"],
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false
+			}
+		}
+	]
+}
