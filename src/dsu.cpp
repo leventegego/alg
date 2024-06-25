@@ -3,29 +3,37 @@
 
 using namespace std;
 
-vector<int> parent;
-
-int findset(int v)
+struct dsu
 {
-    if(parent[v] == -1)
-        return v;
-    return parent[v] = findset(parent[v]);
-}
+    vector<int> parent;
 
-void unionsets(int a, int b)
-{
-    a = findset(a);
-    b = findset(b);
-    if(a == b)
-        return;
+    void build(int n)
+    {
+        parent = vector<int>(n, -1);
+    }
 
-    parent[b] = a;
-}
+    int findset(int v)
+    {
+        if(parent[v] == -1)
+            return v;
+        return parent[v] = findset(parent[v]);
+    }
+
+    void unionsets(int a, int b)
+    {
+        a = findset(a);
+        b = findset(b);
+        if(a == b)
+            return;
+
+        parent[b] = a;
+    }
+};
 
 int main()
 {
     int n; cin >> n;
-    parent = vector<int>(n, -1);
+    dsu d; d.build(n);
 
     return 0;
 }
