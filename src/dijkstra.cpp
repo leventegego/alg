@@ -14,42 +14,6 @@ int n;
 vector<vector<int>> graph;
 vector<vector<int>> weight;
 
-void bfs(int i)
-{
-    vector<bool> found(n, false);
-    list<int> que = { i };
-
-    while(!que.empty())
-    {
-        int v = que.front();
-        que.pop_front();
-
-        if(found[v])
-            continue;
-        found[v] = true;
-
-        que.insert(que.end(), graph[v].begin(), graph[v].end());
-    }
-}
-
-void dfs(int i)
-{
-    vector<bool> found(n, false);
-    list<int> que = { i };
-
-    while(!que.empty())
-    {
-        int v = que.back();
-        que.pop_back();
-
-        if(found[v])
-            continue;
-        found[v] = true;
-
-        que.insert(que.end(), graph[v].begin(), graph[v].end());
-    }
-}
-
 struct dcomp
 {
     bool operator()(pii a, pii b)
